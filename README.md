@@ -1,6 +1,3 @@
-Great! Here's your **final `README.md`** for the `innovate-portal-api` project, crafted to match SBA submission expectations while being clean, descriptive, and educationally structured:
-
----
 
 ```markdown
 # Innovate Portal API
@@ -136,6 +133,6 @@ Use Postman:
 
 ## © Author
 
-Developed by `bolivar` for educational purposes as part of Module 14 Capstone project.
+Developed by `Bolivar Vega` for educational purposes as part of Module 14 Capstone project.
 
 ```
