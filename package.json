@@ -1,16 +1,27 @@
 {
+  "name": "innovate-portal-api",
+  "version": "1.0.0",
+  "description": "Secure backend for Innovate Inc user portal with JWT and GitHub OAuth",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "bcrypt": "^6.0.0",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.16.4",
-    "morgan": "^1.10.1",
+    "mongoose": "^7.6.1",
+    "morgan": "^1.10.0",
     "passport": "^0.7.0",
     "passport-github2": "^0.1.12"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.0.1"
   }
 }

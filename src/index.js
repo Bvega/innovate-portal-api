@@ -1,25 +1,32 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const morgan = require('morgan');
+const dotenv = require('dotenv');
 const cors = require('cors');
-const passport = require('./config/passport');
+const passport = require('passport');
 
-const userRoutes = require('./routes/userRoutes');
+dotenv.config();
 
 const app = express();
 
+// Middleware
 app.use(cors());
-app.use(morgan('dev'));
 app.use(express.json());
 app.use(passport.initialize());
 
-app.use('/api/users', userRoutes);
+// Routes
+const userRoutes = require('./routes/userRoutes');
+const bookmarkRoutes = require('./routes/bookmarkRoutes'); // ✅ added
 
-mongoose.connect(process.env.MONGO_URI)
+app.use('/api/users', userRoutes);
+app.use('/api/bookmarks', bookmarkRoutes); // ✅ mounted
+
+// DB Connection & Server Start
+const PORT = process.env.PORT || 5000;
+
+mongoose
+  .connect(process.env.MONGO_URI)
   .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log(`Server running on port ${process.env.PORT}`);
-    });
+    console.log(`MongoDB connected`);
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
-  .catch(err => console.error(err));
+  .catch((err) => console.error(err));
